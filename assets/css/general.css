@@ -1,0 +1,79 @@
+/* general.css */
+/* Global styles */
+:root {
+    --primary-color: #3a86ff;
+    --secondary-color: #8338ec;
+    --success-color: #4cc9f0;
+    --warning-color: #ffbe0b;
+    --danger-color: #ff006e;
+    --dark-color: #212529;
+    --light-color: #f8f9fa;
+    --transition: all 0.3s ease;
+  }
+  
+  body {
+    padding-top: 58px;
+    scroll-behavior: smooth;
+  }
+  
+  /* Reusable utility classes */
+  .hover-shadow {
+    transition: var(--transition);
+  }
+  
+  .hover-shadow:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .hoverable {
+    transition: var(--transition);
+  }
+  
+  .hoverable:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* Custom divider */
+  .hr-primary {
+    width: 70px;
+    height: 4px !important;
+    margin: 0 auto 2rem;
+    opacity: 1;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+  }
+  
+  /* Ensure cards in a row have the same height */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row .col-md-6 {
+  display: flex;
+}
+
+.card {
+  flex: 1; /* Make cards stretch to fill the height */
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  flex: 1; /* Make the card body take up remaining space */
+}
+  
+  /* Responsive tweaks */
+  @media (max-width: 768px) {
+    .hr-primary {
+      width: 50px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    body {
+      padding-top: 56px;
+    }
+  }
