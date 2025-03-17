@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Configuration Guide for Setting Up a Web Server on Windows with WSL</title>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdn.jsdelivr.net/npm/mdb-ui-kit@8.2.0/css/mdb.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/general.css">
+    <link rel="stylesheet" href="../assets/css/navbar.css">
+    <link rel="stylesheet" href="../assets/css/post1.css">>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-code me-2"></i>DevKnowledge Hub
+            </a>
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../posts/">Posts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../projects/">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../demos/">Demos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../about.html">About</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav d-flex flex-row">
+                    <li class="nav-item me-3">
+                        <a class="nav-link" href="https://github.com/" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a class="nav-link" href="#" id="theme-toggle">
+                            <i class="fas fa-moon"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="card-custom">
+            <h1 class="mb-4">Professional Documentation: Installing Ruby and Rails with rbenv on Ubuntu</h1>
+            
+            <h2>Overview</h2>
+            <p>
+                This guide provides step-by-step instructions for installing <strong>Ruby</strong>, <strong>Rails</strong>, and essential dependencies on <strong>Ubuntu</strong> using <strong>rbenv</strong>. This setup ensures an isolated and flexible Ruby environment for development.
+            </p>
+            <hr>
+            
+            <h2>Prerequisites</h2>
+            <ul>
+                <li>A system running Ubuntu (24.04 or later recommended)</li>
+                <li>Sudo privileges</li>
+                <li>Basic familiarity with the command line</li>
+            </ul>
+            <hr>
+            
+            <h2>Step 1: Update System Packages</h2>
+            <p>Before installation, update and upgrade your system packages:</p>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code>sudo apt update && sudo apt upgrade -y</code></pre>
+            </div>
+            <hr>
+            
+            <h2>Step 2: Install Required Dependencies</h2>
+            <p>Run the following command to install essential packages:</p>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code>sudo apt install -y curl git gcc make libssl-dev libreadline-dev zlib1g-dev libsqlite3-dev
+    sudo apt install -y libffi-dev libyaml-dev</code></pre>
+            </div>
+            <hr>
+            
+            <h2>Step 3: Install rbenv</h2>
+            <p>Clone the rbenv repository and update system path:</p>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code>git clone https://github.com/rbenv/rbenv.git ~/.rbenv</code></pre>
+            </div>
+            <p>Add rbenv to your shell by running:</p>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code>echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+    echo 'eval "$(rbenv init - bash)"' >> ~/.bashrc
+    source ~/.bashrc</code></pre>
+            </div>
+            <hr>
+            
+            <h2>Step 4: Install ruby-build Plugin</h2>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code>git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build</code></pre>
+            </div>
+            <p>Verify rbenv installation:</p>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code>rbenv --version</code></pre>
+            </div>
+            <hr>
+            
+            <h2>Step 5: Install Ruby</h2>
+            <p>List available Ruby versions:</p>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code>rbenv install -l</code></pre>
+            </div>
+            <p>Install the latest stable version of Ruby (replace <code>3.X.X</code> with the latest version):</p>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code>rbenv install 3.X.X
+    rbenv global 3.X.X</code></pre>
+            </div>
+            <p>Verify the installation:</p>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code>ruby -v</code></pre>
+            </div>
+            <hr>
+            
+            <h2>Step 6: Install Bundler and Rails</h2>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code>gem install bundler
+    gem install rails -v 8.0.1 # Install the latest Rails version
+    rbenv rehash</code></pre>
+            </div>
+            <p>Verify Rails installation:</p>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code>rails -v</code></pre>
+            </div>
+            <hr>
+            
+            <h2>Step 7: Install Database Dependencies</h2>
+            <p>For PostgreSQL:</p>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code>sudo apt install -y postgresql postgresql-contrib libpq-dev</code></pre>
+            </div>
+            <p>For SQLite:</p>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code>sudo apt install -y sqlite3 libsqlite3-dev</code></pre>
+            </div>
+            <hr>
+            
+            <h2>Conclusion</h2>
+            <p>
+                You have successfully installed <strong>Ruby</strong>, <strong>Rails</strong>, and essential dependencies using <strong>rbenv</strong> on Ubuntu. You can now start developing Ruby on Rails applications.
+            </p>
+            <p>For further details, visit the official documentation:</p>
+            <ul>
+                <li><a href="https://github.com/rbenv/rbenv" target="_blank">rbenv GitHub</a></li>
+                <li><a href="https://guides.rubyonrails.org/" target="_blank">Rails Guides</a></li>
+            </ul>
+            <h3>Download Link:</h3>
+            <p><a href="https://github.com/rbenv/rbenv" target="_blank">Download Ruby and Rails Setup Script</a></p>
+        </div>
+    </div>
+
+
+    <!-- MDB JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mdb-ui-kit@8.2.0/js/mdb.umd.min.js"></script>
+    <!-- Custom JS for toggle nav bar -->
+    <script type="text/javascript" src="../assets/js/home.js" defer></script>
+    <!-- Custom JS for Copy Button -->
+    <script type="text/javascript" src="../assets/js/copy-code.js"></script>
+</body>
+
+</html>
