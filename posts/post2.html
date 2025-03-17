@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Configuration Guide for Setting Up a Web Server on Windows with WSL</title>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdn.jsdelivr.net/npm/mdb-ui-kit@8.2.0/css/mdb.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/general.css">
+    <link rel="stylesheet" href="../assets/css/navbar.css">
+    <link rel="stylesheet" href="../assets/css/post1.css">>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-code me-2"></i>DevKnowledge Hub
+            </a>
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../posts/">Posts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../projects/">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../demos/">Demos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../about.html">About</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav d-flex flex-row">
+                    <li class="nav-item me-3">
+                        <a class="nav-link" href="https://github.com/" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a class="nav-link" href="#" id="theme-toggle">
+                            <i class="fas fa-moon"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="card-custom">
+            <h1 class="mb-4">Understanding DOM Ready: jQuery vs Vanilla JavaScript</h1>
+            <p>
+                This post explains how to execute code when the DOM is fully loaded using two methods: jQuery’s 
+                <code>$(document).ready()</code> and the native JavaScript 
+                <code>document.addEventListener('DOMContentLoaded', ...)</code>. Below you’ll find details on what each does, when they fire, their syntax, and key features.
+            </p>
+
+            <h2 class="section-title">1. jQuery: <code>$(document).ready()</code></h2>
+            <p><strong>What it does:</strong> This jQuery method executes a callback function once the DOM is fully loaded and ready to be manipulated. It waits for the HTML to be parsed and the DOM tree to be constructed, but it does not wait for external resources like images, stylesheets, or scripts.</p>
+            <p><strong>Timing:</strong> It fires when the DOM is "interactive," typically before the <code>DOMContentLoaded</code> event in some edge cases because jQuery optimizes for usability and may trigger slightly earlier.</p>
+            
+            <h3 class="subsection-title">Syntax</h3>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code>$(document).ready(function() {
+        console.log("DOM is ready via jQuery");
+    });</code></pre>
+            </div>
+            
+            <h3 class="subsection-title">Key Features</h3>
+            <ul>
+                <li><strong>jQuery-specific:</strong> Requires the jQuery library.</li>
+                <li>Can be called multiple times; all callbacks will execute in the order they were added.</li>
+                <li>Ignores whether the event has already fired (if added late, it still runs the callback immediately).</li>
+            </ul>
+
+            <hr>
+
+            <h2 class="section-title">2. Vanilla JavaScript: <code>document.addEventListener('DOMContentLoaded', ...)</code></h2>
+            <p><strong>What it does:</strong> This native JavaScript event listener triggers when the DOM is fully loaded and parsed, similar to <code>$(document).ready()</code>. It is part of the standard DOM API and does not rely on external libraries.</p>
+            <p><strong>Timing:</strong> It fires when the <code>DOMContentLoaded</code> event occurs, which is after the HTML is fully parsed but before external resources (like images) are loaded. It is tied directly to the browser’s event lifecycle.</p>
+            
+            <h3 class="subsection-title">Syntax</h3>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code>document.addEventListener('DOMContentLoaded', function() {
+        console.log("DOM is ready via DOMContentLoaded");
+    });</code></pre>
+            </div>
+            
+            <h3 class="subsection-title">Key Features</h3>
+            <ul>
+                <li><strong>Native JavaScript:</strong> No dependencies required.</li>
+                <li>Only runs if added before the <code>DOMContentLoaded</code> event fires; if added after, it won’t execute unless the event hasn’t occurred yet.</li>
+                <li>Can only have one listener per event type unless you add more using <code>addEventListener</code>.</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- MDB JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mdb-ui-kit@8.2.0/js/mdb.umd.min.js"></script>
+    <!-- Custom JS for toggle nav bar -->
+    <script type="text/javascript" src="../assets/js/home.js" defer></script>
+    <!-- Custom JS for Copy Button -->
+    <script type="text/javascript" src="../assets/js/copy-code.js"></script>
+</body>
+
+</html>
