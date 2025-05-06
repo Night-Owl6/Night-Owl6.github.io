@@ -2,478 +2,160 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>DevKnowledge Hub</title>
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <!-- MDB -->
-    <link href="https://cdn.jsdelivr.net/npm/mdb-ui-kit@8.2.0/css/mdb.min.css" rel="stylesheet" />
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/assets/css/home.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- You can use Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <i class="fas fa-code me-2"></i>DevKnowledge Hub
-            </a>
-            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="posts/">Posts</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="projects/">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="demos/">Demos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li> -->
-                </ul>
-                <ul class="navbar-nav d-flex flex-row">
-                    <li class="nav-item me-3">
-                        <a class="nav-link" href="https://github.com/" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item me-3">
-                        <a class="nav-link" href="#" id="theme-toggle">
-                            <i class="fas fa-moon"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Your Name</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
     <!-- Hero Section -->
-    <div id="intro" class="bg-image shadow-1-strong">
-        <div class="mask d-flex align-items-center">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-10 text-center text-white">
-                        <h1 class="display-4 fw-bold mb-3">Knowledge Base & Development Journal</h1>
-                        <p class="lead mb-4">A collection of projects, solutions, and insights from my development journey</p>
-                        <div class="d-flex justify-content-center">
-                            <a href="posts/" class="btn btn-primary btn-lg m-2">Read Blog</a>
-                            <a href="projects/" class="btn btn-outline-light btn-lg m-2">View Projects</a>
-                        </div>
-                    </div>
-                </div>
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm Your Name</h1>
+            <h2>Software Developer</h2>
+            <p>I build responsive web applications with clean, efficient code.</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn primary">View My Work</a>
+                <a href="#contact" class="btn secondary">Contact Me</a>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Search Section -->
-    <div class="container my-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="input-group">
-                    <input type="search" class="form-control rounded" placeholder="Search articles and projects" aria-label="Search" aria-describedby="search-addon" />
-                    <button type="button" class="btn btn-primary">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Your professional summary here. Describe your passion for development, key strengths, and what makes you unique as a developer.</p>
+                <p>Second paragraph with more details about your background, education, or professional journey.</p>
+                <a href="path/to/resume.pdf" class="btn" target="_blank">Download Resume</a>
+            </div>
+            <div class="about-image">
+                <img src="images/profile.jpg" alt="Your Name">
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Latest Posts Section -->
-    <div class="container my-5">
-        <section>
-            <h2 class="text-center mb-4">Latest Posts</h2>
-            <hr class="hr-primary">
-            
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100 hover-shadow">
-                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="https://placehold.co/800x500" alt="Post image" class="img-fluid" />
-                            <a href="posts/post-1.html">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <span class="badge bg-primary">JavaScript</span>
-                                <small class="text-muted">March 10, 2025</small>
-                            </div>
-                            <h5 class="card-title">Optimizing React Performance</h5>
-                            <p class="card-text">Techniques for minimizing render cycles and improving overall application speed.</p>
-                        </div>
-                        <div class="card-footer bg-transparent border-0">
-                            <a href="posts/post-1.html" class="btn btn-link text-primary p-0">Read More <i class="fas fa-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100 hover-shadow">
-                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="https://placehold.co/800x500" alt="Post image" class="img-fluid" />
-                            <a href="posts/post-2.html">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <span class="badge bg-success">AWS</span>
-                                <small class="text-muted">March 5, 2025</small>
-                            </div>
-                            <h5 class="card-title">Serverless API Architecture</h5>
-                            <p class="card-text">Setting up a complete serverless REST API with Lambda, API Gateway, and DynamoDB.</p>
-                        </div>
-                        <div class="card-footer bg-transparent border-0">
-                            <a href="posts/post-2.html" class="btn btn-link text-primary p-0">Read More <i class="fas fa-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100 hover-shadow">
-                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="https://placehold.co/800x500" alt="Post image" class="img-fluid" />
-                            <a href="posts/post-3.html">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <span class="badge bg-danger">DevOps</span>
-                                <small class="text-muted">February 28, 2025</small>
-                            </div>
-                            <h5 class="card-title">GitHub Actions CI/CD Pipeline</h5>
-                            <p class="card-text">Automating testing and deployment workflows for web applications.</p>
-                        </div>
-                        <div class="card-footer bg-transparent border-0">
-                            <a href="posts/post-3.html" class="btn btn-link text-primary p-0">Read More <i class="fas fa-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
-                </div>
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Frontend</h3>
+                <ul class="skill-list">
+                    <li>HTML5</li>
+                    <li>CSS3/SASS</li>
+                    <li>JavaScript</li>
+                    <li>React</li>
+                    <!-- Add more skills -->
+                </ul>
             </div>
-
-            <div class="text-center mt-4">
-                <a href="posts/" class="btn btn-primary">View All Posts</a>
+            <div class="skill-category">
+                <h3>Backend</h3>
+                <ul class="skill-list">
+                    <li>Node.js</li>
+                    <li>Python</li>
+                    <li>Express</li>
+                    <li>MongoDB</li>
+                    <!-- Add more skills -->
+                </ul>
             </div>
-        </section>
-    </div>
+            <div class="skill-category">
+                <h3>Tools & Others</h3>
+                <ul class="skill-list">
+                    <li>Git</li>
+                    <li>Docker</li>
+                    <li>AWS</li>
+                    <li>Figma</li>
+                    <!-- Add more skills -->
+                </ul>
+            </div>
+        </div>
+    </section>
 
     <!-- Projects Section -->
-    <div class="container-fluid bg-light py-5">
-        <div class="container">
-            <section>
-                <h2 class="text-center mb-4">Featured Projects</h2>
-                <hr class="hr-primary">
-                
-                <div class="row g-4">
-                    <div class="col-lg-6 col-md-12 mb-4">
-                        <div class="card hoverable">
-                            <div class="row g-0">
-                                <div class="col-md-4 bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                    <img src="https://placehold.co/400x400" alt="Project image" class="img-fluid rounded-start h-100" />
-                                    <a href="projects/project-1.html">
-                                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                    </a>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Real-time Chat Application</h5>
-                                        <p class="card-text">A WebSocket-based chat application with React and Node.js backend.</p>
-                                        <div class="d-flex flex-wrap mt-3 mb-2">
-                                            <span class="badge rounded-pill bg-primary me-2 mb-2">React</span>
-                                            <span class="badge rounded-pill bg-secondary me-2 mb-2">Node.js</span>
-                                            <span class="badge rounded-pill bg-info me-2 mb-2">WebSockets</span>
-                                        </div>
-                                        <a href="projects/project-1.html" class="btn btn-primary btn-sm">View Project</a>
-                                        <a href="https://github.com/" class="btn btn-outline-primary btn-sm ms-2">
-                                            <i class="fab fa-github me-1"></i>Code
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    <section id="projects">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/project1.jpg" alt="Project 1">
+                </div>
+                <div class="project-info">
+                    <h3>Project Name</h3>
+                    <p>Brief description of the project, its purpose, and the problem it solves.</p>
+                    <div class="project-tech">
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>MongoDB</span>
                     </div>
-
-                    <div class="col-lg-6 col-md-12 mb-4">
-                        <div class="card hoverable">
-                            <div class="row g-0">
-                                <div class="col-md-4 bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                    <img src="https://placehold.co/400x400" alt="Project image" class="img-fluid rounded-start h-100" />
-                                    <a href="projects/project-2.html">
-                                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                    </a>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Data Visualization Dashboard</h5>
-                                        <p class="card-text">Interactive dashboard for displaying and analyzing time-series data.</p>
-                                        <div class="d-flex flex-wrap mt-3 mb-2">
-                                            <span class="badge rounded-pill bg-primary me-2 mb-2">D3.js</span>
-                                            <span class="badge rounded-pill bg-secondary me-2 mb-2">Vue.js</span>
-                                            <span class="badge rounded-pill bg-info me-2 mb-2">REST API</span>
-                                        </div>
-                                        <a href="projects/project-2.html" class="btn btn-primary btn-sm">View Project</a>
-                                        <a href="https://github.com/" class="btn btn-outline-primary btn-sm ms-2">
-                                            <i class="fab fa-github me-1"></i>Code
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="project-links">
+                        <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i> Source Code</a>
                     </div>
                 </div>
-
-                <div class="text-center mt-4">
-                    <a href="projects/" class="btn btn-primary">View All Projects</a>
-                </div>
-            </section>
-        </div>
-    </div>
-
-    <!-- Debugging Solutions Section -->
-    <div class="container my-5">
-        <section>
-            <h2 class="text-center mb-4">Latest Solutions</h2>
-            <hr class="hr-primary">
+            </div>
             
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="accordion" id="solutionsAccordion">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-mdb-toggle="collapse"
-                                    data-mdb-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Fixing CORS issues in a React application
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                                data-mdb-parent="#solutionsAccordion">
-                                <div class="accordion-body">
-                                    <p>When developing a React application that communicates with a backend API, you might encounter CORS (Cross-Origin Resource Sharing) issues. Here's how I resolved it:</p>
-                                    <a href="solutions/cors-issues.html" class="btn btn-link p-0">Read full solution <i class="fas fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
-                                    data-mdb-target="#collapseTwo" aria-expanded="false"
-                                    data-mdb-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Solving memory leaks in JavaScript event listeners
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                data-mdb-parent="#solutionsAccordion">
-                                <div class="accordion-body">
-                                    <p>Memory leaks can occur when event listeners aren't properly removed in single-page applications. Here's how I identified and fixed this common issue:</p>
-                                    <a href="solutions/memory-leaks.html" class="btn btn-link p-0">Read full solution <i class="fas fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
-                                    data-mdb-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Debugging Node.js application memory usage
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                                data-mdb-parent="#solutionsAccordion">
-                                <div class="accordion-body">
-                                    <p>When my Node.js application was consuming too much memory in production, I used these tools and techniques to identify and resolve the underlying issues:</p>
-                                    <a href="solutions/node-memory-usage.html" class="btn btn-link p-0">Read full solution <i class="fas fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Add more project cards as needed -->
+        </div>
+    </section>
 
-                    <div class="text-center mt-4">
-                        <a href="solutions/" class="btn btn-primary">View All Solutions</a>
-                    </div>
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">2021 - Present</div>
+                <div class="timeline-content">
+                    <h3>Software Developer</h3>
+                    <h4>Company Name</h4>
+                    <p>Description of your role, responsibilities, and key achievements.</p>
                 </div>
             </div>
-        </section>
-    </div>
-
-    <!-- Knowledge Categories -->
-    <div class="container-fluid bg-light py-5">
-        <div class="container">
-            <section>
-                <h2 class="text-center mb-4">Knowledge Base Categories</h2>
-                <hr class="hr-primary">
-                
-                <div class="row g-4">
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="card text-center h-100 hover-shadow">
-                            <div class="card-body">
-                                <div class="py-3">
-                                    <i class="fas fa-code fa-3x text-primary mb-3"></i>
-                                    <h5 class="card-title">Frontend Development</h5>
-                                    <p class="card-text">React, Vue, Angular, and modern CSS techniques</p>
-                                </div>
-                                <a href="categories/frontend.html" class="btn btn-primary btn-sm">Explore</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="card text-center h-100 hover-shadow">
-                            <div class="card-body">
-                                <div class="py-3">
-                                    <i class="fas fa-server fa-3x text-success mb-3"></i>
-                                    <h5 class="card-title">Backend Development</h5>
-                                    <p class="card-text">Node.js, Express, Django, and database design</p>
-                                </div>
-                                <a href="categories/backend.html" class="btn btn-success btn-sm">Explore</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="card text-center h-100 hover-shadow">
-                            <div class="card-body">
-                                <div class="py-3">
-                                    <i class="fas fa-cloud fa-3x text-info mb-3"></i>
-                                    <h5 class="card-title">Cloud Services</h5>
-                                    <p class="card-text">AWS, Azure, Google Cloud, and serverless architecture</p>
-                                </div>
-                                <a href="categories/cloud.html" class="btn btn-info btn-sm">Explore</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="card text-center h-100 hover-shadow">
-                            <div class="card-body">
-                                <div class="py-3">
-                                    <i class="fas fa-cogs fa-3x text-danger mb-3"></i>
-                                    <h5 class="card-title">DevOps</h5>
-                                    <p class="card-text">CI/CD, Docker, Kubernetes, and automation</p>
-                                </div>
-                                <a href="categories/devops.html" class="btn btn-danger btn-sm">Explore</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <!-- Add more experience items -->
         </div>
-    </div>
+    </section>
 
-    <!-- Newsletter -->
-    <!-- <div class="container my-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-body py-5 px-md-5">
-                        <div class="text-center mb-4">
-                            <i class="far fa-envelope-open fa-3x text-primary mb-3"></i>
-                            <h3>Subscribe to Newsletter</h3>
-                            <p>Get notified when I publish new articles and projects.</p>
-                        </div>
-                        <form>
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-md-8 col-12">
-                                    <div class="form-outline mb-4">
-                                        <input type="email" id="email" class="form-control" />
-                                        <label class="form-label" for="email">Email address</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary btn-block mb-4">Subscribe</button>
-                            </div>
-                        </form>
-                    </div>
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:your.email@example.com">your.email@example.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/yourusername" target="_blank">GitHub</a>
                 </div>
             </div>
         </div>
-    </div> -->
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white">
-        <div class="container p-4">
-            <div class="row">
-                <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
-                    <h5 class="text-uppercase mb-4">DevKnowledge Hub</h5>
-                    <p>A personal knowledge base and development journal sharing solutions, projects, and insights from my coding journey.</p>
-                    <div class="mt-4">
-                        <!-- Social buttons -->
-                        <a class="btn btn-floating btn-light btn-sm" href="#"><i class="fab fa-github"></i></a>
-                        <a class="btn btn-floating btn-light btn-sm" href="#"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-floating btn-light btn-sm" href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="btn btn-floating btn-light btn-sm" href="#"><i class="fab fa-codepen"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase mb-4">Quick Links</h5>
-                    <ul class="list-unstyled mb-0">
-                        <li class="mb-2">
-                            <a href="posts/" class="text-white"><i class="fas fa-angle-right me-2"></i>Blog Posts</a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="projects/" class="text-white"><i class="fas fa-angle-right me-2"></i>Projects</a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="solutions/" class="text-white"><i class="fas fa-angle-right me-2"></i>Solutions</a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="about.html" class="text-white"><i class="fas fa-angle-right me-2"></i>About Me</a>
-                        </li>
-                        <li>
-                            <a href="contact.html" class="text-white"><i class="fas fa-angle-right me-2"></i>Contact</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase mb-4">Popular Topics</h5>
-                    <div class="d-flex flex-wrap">
-                        <a href="#" class="badge bg-primary m-1">JavaScript</a>
-                        <a href="#" class="badge bg-primary m-1">React</a>
-                        <a href="#" class="badge bg-primary m-1">Node.js</a>
-                        <a href="#" class="badge bg-primary m-1">AWS</a>
-                        <a href="#" class="badge bg-primary m-1">DevOps</a>
-                        <a href="#" class="badge bg-primary m-1">Docker</a>
-                        <a href="#" class="badge bg-primary m-1">API Design</a>
-                        <a href="#" class="badge bg-primary m-1">GraphQL</a>
-                        <a href="#" class="badge bg-primary m-1">TypeScript</a>
-                        <a href="#" class="badge bg-primary m-1">Testing</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2025 DevKnowledge Hub. Built with
-            <i class="fas fa-heart text-danger mx-1"></i> and
-            <a class="text-white" href="https://mdbootstrap.com/">MDB</a>
-        </div>
+    <footer>
+        <p>&copy; 2025 Your Name. All rights reserved.</p>
     </footer>
 
-    <!-- Back to top button -->
-    <a href="#" class="back-to-top btn-floating btn-lg btn-primary" id="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-
-    <!-- MDB -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mdb-ui-kit@8.2.0/js/mdb.umd.min.js"></script>
-    <!-- Custom JS -->
-    <script src="/assets/js/home.js" defer></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
