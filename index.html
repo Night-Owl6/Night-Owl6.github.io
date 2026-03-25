@@ -1,346 +1,989 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajay Tiwari - Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- You can use Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="description" content="Ajay Tiwari builds full-stack systems, AI workflows, and production-ready platforms for real users.">
+    <title>Ajay Tiwari | Full-Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f2ece3;
+            --ink: #132126;
+            --muted: #526167;
+            --line: rgba(19, 33, 38, 0.12);
+            --accent: #bf5a36;
+            --accent-deep: #8e3f24;
+            --light: #fffaf3;
+            --shadow: 0 24px 80px rgba(16, 24, 29, 0.18);
+            --radius: 28px;
+            --max: 1180px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Space Grotesk", sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(191, 90, 54, 0.18), transparent 28%),
+                radial-gradient(circle at 85% 12%, rgba(19, 33, 38, 0.12), transparent 22%),
+                linear-gradient(180deg, #f7f2ea 0%, #efe7dc 48%, #e7ddd0 100%);
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(19, 33, 38, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(19, 33, 38, 0.04) 1px, transparent 1px);
+            background-size: 72px 72px;
+            mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 90%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .shell {
+            width: min(var(--max), calc(100% - 2rem));
+            margin: 0 auto;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            padding: 1rem 0;
+            backdrop-filter: blur(18px);
+            background: rgba(242, 236, 227, 0.7);
+            border-bottom: 1px solid rgba(19, 33, 38, 0.08);
+        }
+
+        .site-header .shell {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .brand-mark {
+            width: 2.7rem;
+            height: 2.7rem;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            border: 1px solid rgba(19, 33, 38, 0.18);
+            background: linear-gradient(135deg, rgba(255, 250, 243, 0.95), rgba(191, 90, 54, 0.18));
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+        }
+
+        .menu-toggle {
+            display: none;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.45);
+            border-radius: 999px;
+            padding: 0.7rem 1rem;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav a {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover,
+        .nav a:focus-visible {
+            color: var(--ink);
+        }
+
+        .nav-cta {
+            padding: 0.85rem 1.2rem;
+            border-radius: 999px;
+            background: var(--ink);
+            color: var(--light);
+        }
+
+        main {
+            overflow: clip;
+        }
+
+        section {
+            padding: 4.5rem 0;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            font-size: 0.72rem;
+            color: var(--muted);
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 2.5rem;
+            height: 1px;
+            background: rgba(19, 33, 38, 0.28);
+        }
+
+        .hero {
+            padding-top: 3rem;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .hero-copy {
+            padding: 1.25rem 0 0;
+        }
+
+        .hero h1,
+        .section-heading h2,
+        .contact-panel h2 {
+            margin: 0;
+            font-family: "Cormorant Garamond", serif;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 0.92;
+        }
+
+        .hero h1 {
+            font-size: clamp(4rem, 10vw, 8rem);
+            margin-top: 1rem;
+            max-width: 10ch;
+        }
+
+        .hero-intro {
+            max-width: 40rem;
+            margin: 1.5rem 0 0;
+            font-size: 1.08rem;
+            line-height: 1.85;
+            color: var(--muted);
+        }
+
+        .hero-actions,
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.65rem;
+            padding: 1rem 1.35rem;
+            border-radius: 999px;
+            transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+        }
+
+        .button:hover,
+        .button:focus-visible {
+            transform: translateY(-2px);
+        }
+
+        .button.primary {
+            background: var(--accent);
+            color: var(--light);
+            box-shadow: 0 16px 30px rgba(191, 90, 54, 0.24);
+        }
+
+        .button.secondary {
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.45);
+        }
+
+        .meta-pill {
+            padding: 0.85rem 1rem;
+            border-radius: 999px;
+            border: 1px solid rgba(19, 33, 38, 0.12);
+            background: rgba(255, 255, 255, 0.38);
+            color: var(--muted);
+            font-size: 0.93rem;
+        }
+
+        .hero-card {
+            position: relative;
+            min-height: 40rem;
+            padding: 1.4rem;
+            border-radius: calc(var(--radius) + 8px);
+            overflow: hidden;
+            background:
+                linear-gradient(160deg, rgba(12, 18, 22, 0.9), rgba(40, 31, 27, 0.78)),
+                radial-gradient(circle at top right, rgba(191, 90, 54, 0.42), transparent 28%);
+            color: var(--light);
+            box-shadow: var(--shadow);
+        }
+
+        .portrait-wrap {
+            position: absolute;
+            inset: 1.4rem;
+            border-radius: calc(var(--radius) + 2px);
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent);
+        }
+
+        .portrait-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: saturate(0.82) contrast(1.08) brightness(0.92);
+            transform: scale(1.03);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: auto 1.4rem 1.4rem;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .status-card,
+        .quote-card {
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 22px;
+            background: rgba(12, 18, 22, 0.45);
+            backdrop-filter: blur(12px);
+            padding: 1rem 1.1rem;
+        }
+
+        .status-card {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.8rem;
+        }
+
+        .status-label {
+            display: block;
+            color: rgba(255, 250, 243, 0.62);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            font-size: 0.68rem;
+        }
+
+        .status-value {
+            display: block;
+            margin-top: 0.25rem;
+            font-size: 1rem;
+        }
+
+        .quote-card p {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.65;
+        }
+
+        .section-heading {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(240px, 0.7fr);
+            gap: 2rem;
+            align-items: end;
+            margin-bottom: 2rem;
+        }
+
+        .section-heading h2,
+        .contact-panel h2 {
+            font-size: clamp(2.6rem, 5vw, 4.4rem);
+        }
+
+        .section-heading p,
+        .contact-panel p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .manifesto-grid,
+        .projects-grid,
+        .capability-grid,
+        .contact-grid {
+            display: grid;
+            gap: 1.4rem;
+        }
+
+        .manifesto-grid {
+            grid-template-columns: 1.15fr 0.85fr;
+        }
+
+        .panel {
+            position: relative;
+            border-radius: var(--radius);
+            border: 1px solid var(--line);
+            background: rgba(255, 250, 243, 0.52);
+            box-shadow: 0 16px 45px rgba(19, 33, 38, 0.06);
+            overflow: hidden;
+        }
+
+        .panel::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 35%);
+            pointer-events: none;
+        }
+
+        .manifesto-copy {
+            padding: 2rem;
+        }
+
+        .manifesto-copy p {
+            margin: 0 0 1.25rem;
+            font-size: 1.02rem;
+            line-height: 1.9;
+            color: var(--muted);
+        }
+
+        .manifesto-list,
+        .signal-list,
+        .timeline-list,
+        .contact-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .manifesto-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .manifesto-list li,
+        .signal-list li,
+        .contact-list a,
+        .timeline-item {
+            border-radius: 22px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.42);
+        }
+
+        .manifesto-list li {
+            padding: 1.1rem;
+        }
+
+        .mini-label {
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            font-size: 0.68rem;
+            color: var(--muted);
+            margin-bottom: 0.55rem;
+        }
+
+        .signal-panel {
+            padding: 1.6rem;
+            background:
+                radial-gradient(circle at 85% 15%, rgba(191, 90, 54, 0.2), transparent 22%),
+                linear-gradient(180deg, rgba(19, 33, 38, 0.03), rgba(19, 33, 38, 0.08));
+        }
+
+        .signal-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .signal-list li {
+            padding: 1.2rem;
+        }
+
+        .signal-list strong,
+        .timeline-item strong,
+        .contact-list strong {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .signal-list span,
+        .timeline-item span,
+        .contact-list span {
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .projects-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .project {
+            padding: 1.5rem;
+            min-height: 100%;
+        }
+
+        .project-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .project-index {
+            color: var(--accent);
+            font-size: 0.9rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .project h3 {
+            margin: 0.8rem 0 0.9rem;
+            font-size: 1.45rem;
+        }
+
+        .project p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            margin-top: 1.4rem;
+        }
+
+        .tag {
+            padding: 0.5rem 0.85rem;
+            border-radius: 999px;
+            background: rgba(19, 33, 38, 0.07);
+            color: var(--ink);
+            font-size: 0.82rem;
+        }
+
+        .capability-grid {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .capability {
+            padding: 1.5rem;
+        }
+
+        .capability h3 {
+            margin: 0.8rem 0 0.7rem;
+            font-size: 1.15rem;
+        }
+
+        .capability p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.75;
+        }
+
+        .timeline-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 180px minmax(0, 1fr);
+            gap: 1.25rem;
+            padding: 1.25rem;
+        }
+
+        .timeline-date {
+            color: var(--accent-deep);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 0.8rem;
+        }
+
+        .contact-panel {
+            padding: 2rem;
+            border-radius: calc(var(--radius) + 6px);
+            background:
+                linear-gradient(145deg, rgba(19, 33, 38, 0.95), rgba(38, 31, 27, 0.92)),
+                radial-gradient(circle at top right, rgba(191, 90, 54, 0.34), transparent 24%);
+            color: var(--light);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-grid {
+            grid-template-columns: 1fr auto;
+            align-items: end;
+            margin-top: 2rem;
+        }
+
+        .contact-list {
+            display: grid;
+            gap: 0.9rem;
+        }
+
+        .contact-list a {
+            display: block;
+            padding: 1rem 1.1rem;
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .contact-list span {
+            color: rgba(255, 250, 243, 0.74);
+        }
+
+        .signature {
+            align-self: start;
+            padding: 1rem 0 0;
+            color: rgba(255, 250, 243, 0.72);
+            font-size: 0.95rem;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 700ms ease, transform 700ms ease;
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        :focus-visible {
+            outline: 3px solid rgba(191, 90, 54, 0.4);
+            outline-offset: 4px;
+        }
+
+        @media (max-width: 1080px) {
+            .hero-grid,
+            .manifesto-grid,
+            .section-heading,
+            .contact-grid,
+            .capability-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-card {
+                min-height: 34rem;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .site-header .shell {
+                flex-wrap: wrap;
+            }
+
+            .menu-toggle {
+                display: inline-flex;
+                margin-left: auto;
+            }
+
+            .nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+                padding-top: 0.5rem;
+            }
+
+            .nav.is-open {
+                display: flex;
+            }
+
+            .nav-cta {
+                text-align: center;
+            }
+
+            section {
+                padding: 3.5rem 0;
+            }
+
+            .hero {
+                padding-top: 2rem;
+            }
+
+            .hero h1 {
+                max-width: 100%;
+            }
+
+            .status-card,
+            .manifesto-list {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-card {
+                min-height: 30rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">Ajay Tiwari</div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="hero">
-        <div class="hero-content">
-            <h1>Hi, I'm Ajay Tiwari</h1>
-            <h2>Software Developer</h2>
-            <p>I build responsive web applications with clean, efficient code.</p>
-            <div class="cta-buttons">
-                <a href="#projects" class="btn primary">View My Work</a>
-                <a href="#contact" class="btn secondary">Contact Me</a>
-            </div>
+    <header class="site-header">
+        <div class="shell">
+            <a class="brand" href="#top" aria-label="Ajay Tiwari home">
+                <span class="brand-mark">AT</span>
+                <span>Ajay Tiwari</span>
+            </a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+                Menu
+            </button>
+            <nav class="nav" id="site-nav" aria-label="Primary navigation">
+                <a href="#work">Work</a>
+                <a href="#craft">Craft</a>
+                <a href="#timeline">Timeline</a>
+                <a href="#contact" class="nav-cta">Start A Conversation</a>
+            </nav>
         </div>
-    </section>
+    </header>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>I am a passionate Full Stack Developer with a relentless drive to craft innovative, high-performance web solutions that solve real-world problems. My key strengths lie in my ability to own the entire development lifecycle—from ideation and UI/UX design to deployment and optimization—while delivering scalable, user-centric applications. What sets me apart is my blend of technical expertise, creative problem-solving, and a deep commitment to leveraging emerging technologies like AI to enhance user experiences. I thrive in dynamic environments, transforming complex challenges into seamless, impactful solutions that empower users and organizations alike.</p>
-                <p>With a strong foundation in Computer Science and extensive hands-on experience, I have honed my skills across a diverse tech stack, including Python, Flask, MySQL, Redis, and Nginx, while integrating cutting-edge AI tools from platforms like Hugging Face and Ollama. My professional journey began with building end-to-end web platforms, such as a Classroom Information Management system, where I single-handedly designed, developed, and deployed solutions for educational institutions. Self-taught in many aspects and fueled by a curiosity for emerging technologies, I continuously expand my expertise through practical application and experimentation. My academic background, combined with real-world projects, has equipped me to tackle legacy systems, optimize modern architectures, and deliver solutions that balance performance, security, and user satisfaction.</p>
-                <a href="path/to/resume.pdf" class="btn" target="_blank">Download Resume</a>
-            </div>
-            <div class="about-image">
-                <img src="images/profile.jpg" alt="Ajay Tiwari">
-            </div>
-        </div>
-    </section>
+    <main id="top">
+        <section class="hero">
+            <div class="shell hero-grid">
+                <div class="hero-copy reveal">
+                    <span class="eyebrow">Full-Stack Developer + AI Builder</span>
+                    <h1>Systems that feel sharp, fast, and alive.</h1>
+                    <p class="hero-intro">
+                        I design and ship digital products that connect backend rigor, thoughtful interfaces, and applied AI.
+                        My work lives where performance matters, complexity is real, and the final experience still has to feel effortless.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="button primary" href="#work">See Selected Work</a>
+                        <a class="button secondary" href="mailto:tiwariajay928@gmail.com">Email Ajay</a>
+                    </div>
+                    <div class="hero-meta">
+                        <span class="meta-pill">Python, Flask, MySQL, Redis, Nginx</span>
+                        <span class="meta-pill">RAG, Fine-Tuning, Vector Search</span>
+                        <span class="meta-pill">Built for real school operations</span>
+                    </div>
+                </div>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2 class="section-title">Skills</h2>
-        <div class="skills-container">
-            <div class="skill-category">
-                <h3>Frontend</h3>
-                <ul class="skill-list">
-                    <li>HTML5/CSS3</li>
-                    <li>JavaScript</li>
-                    <li>Responsive Design</li>
-                    <li>UI/UX Design</li>
-                    <li>Jinja Templating</li>
-                </ul>
+                <div class="hero-card reveal">
+                    <div class="portrait-wrap">
+                        <img src="images/profile.jpg" alt="Portrait of Ajay Tiwari">
+                    </div>
+                    <div class="hero-overlay">
+                        <div class="status-card">
+                            <div>
+                                <span class="status-label">Focus</span>
+                                <span class="status-value">Applied AI</span>
+                            </div>
+                            <div>
+                                <span class="status-label">Stack</span>
+                                <span class="status-value">Flask + SQL</span>
+                            </div>
+                            <div>
+                                <span class="status-label">Mode</span>
+                                <span class="status-value">Ship End-to-End</span>
+                            </div>
+                        </div>
+                        <div class="quote-card">
+                            <p>
+                                From interface polish to production deployment, the goal is the same: remove friction and make the system carry its own weight.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="skill-category">
-                <h3>Backend</h3>
-                <ul class="skill-list">
-                    <li>Python</li>
-                    <li>Flask</li>
-                    <li>MySQL</li>
-                    <li>Redis</li>
-                    <li>RESTful APIs</li>
-                    <li>SQL Optimization</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>DevOps & Tools</h3>
-                <ul class="skill-list">
-                    <li>Nginx</li>
-                    <li>Gunicorn/Waitress</li>
-                    <li>Windows Server</li>
-                    <li>Git</li>
-                    <li>System Monitoring</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>AI & ML</h3>
-                <ul class="skill-list">
-                    <li>LLM Fine-tuning</li>
-                    <li>RAG Pipelines</li>
-                    <li>Vector Databases</li>
-                    <li>Ollama & Hugging Face</li>
-                    <li>Open Web UI</li>
-                    <li>Data Preprocessing</li>
-                </ul>
-            </div>
-        </div>
+        </section>
 
-        <!-- Alternative Skill Display with Bars (Uncomment to use) -->
-        <!--
-        <div class="skills-container">
-            <div class="skill-category">
-                <h3>Backend Technologies</h3>
-                
-                <div class="skill-with-bar">
-                    <div class="skill-name">
-                        <span>Python/Flask</span>
-                        <span>95%</span>
+        <section id="work">
+            <div class="shell">
+                <div class="section-heading reveal">
+                    <div>
+                        <span class="eyebrow">Selected Work</span>
+                        <h2>Built for classrooms, operations, and scale.</h2>
                     </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 95%"></div>
-                    </div>
+                    <p>
+                        The strongest work is not a disconnected list of demos. It is a set of systems that solve actual operational problems, hold up under use, and stay maintainable after launch.
+                    </p>
                 </div>
-                
-                <div class="skill-with-bar">
-                    <div class="skill-name">
-                        <span>MySQL/SQL</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 90%"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-with-bar">
-                    <div class="skill-name">
-                        <span>Redis</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="skill-category">
-                <h3>Frontend & UI</h3>
-                
-                <div class="skill-with-bar">
-                    <div class="skill-name">
-                        <span>HTML/CSS/JS</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 90%"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-with-bar">
-                    <div class="skill-name">
-                        <span>Responsive Design</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-with-bar">
-                    <div class="skill-name">
-                        <span>UI/UX Design</span>
-                        <span>80%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 80%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="skill-category">
-                <h3>AI & ML</h3>
-                
-                <div class="skill-with-bar">
-                    <div class="skill-name">
-                        <span>LLM Fine-tuning</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 90%"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-with-bar">
-                    <div class="skill-name">
-                        <span>RAG Pipelines</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-with-bar">
-                    <div class="skill-name">
-                        <span>Vector Databases</span>
-                        <span>80%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 80%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="skill-category">
-                <h3>DevOps</h3>
-                
-                <div class="skill-with-bar">
-                    <div class="skill-name">
-                        <span>Nginx</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-with-bar">
-                    <div class="skill-name">
-                        <span>Gunicorn/Waitress</span>
-                        <span>80%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 80%"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-with-bar">
-                    <div class="skill-name">
-                        <span>System Monitoring</span>
-                        <span>75%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 75%"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        -->
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2 class="section-title">My Projects</h2>
-        <div class="projects-grid">
-            <!-- Project 1 -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="images/project1.jpg" alt="Project 1">
+                <div class="manifesto-grid">
+                    <article class="panel manifesto-copy reveal">
+                        <p>
+                            I built and deployed a classroom information management platform with distinct student and staff experiences, media delivery, messaging, authentication, reporting, and production hosting.
+                        </p>
+                        <p>
+                            That meant handling legacy constraints, performance-sensitive SQL, Windows Server deployment, reverse proxy configuration, and the interface layer at the same time without losing clarity.
+                        </p>
+                        <p>
+                            More recently, I have been folding AI into that same product mindset: retrieval pipelines, model adaptation, better content delivery, and interfaces that make advanced tooling usable by non-technical people.
+                        </p>
+                        <ul class="manifesto-list">
+                            <li>
+                                <span class="mini-label">Role</span>
+                                End-to-end builder across product, code, deployment, and iteration.
+                            </li>
+                            <li>
+                                <span class="mini-label">Bias</span>
+                                Clean architecture where speed and maintainability reinforce each other.
+                            </li>
+                            <li>
+                                <span class="mini-label">Outcome</span>
+                                Production systems that support real people doing real work.
+                            </li>
+                        </ul>
+                    </article>
+
+                    <aside class="panel signal-panel reveal">
+                        <span class="eyebrow">Signal</span>
+                        <ul class="signal-list">
+                            <li>
+                                <strong>Messaging + attachments</strong>
+                                <span>Real-time communication flows with notifications, read status, and role-aware behavior.</span>
+                            </li>
+                            <li>
+                                <strong>Legacy + modern data</strong>
+                                <span>Worked around non-editable database constraints while extending the product safely.</span>
+                            </li>
+                            <li>
+                                <strong>AI integration</strong>
+                                <span>RAG pipelines, vector-backed retrieval, and fine-tuned models connected to educational workflows.</span>
+                            </li>
+                        </ul>
+                    </aside>
                 </div>
-                <div class="project-info">
-                    <h3>Project Name</h3>
-                    <p>Brief description of the project, its purpose, and the problem it solves.</p>
-                    <div class="project-tech">
-                        <span>React</span>
-                        <span>Node.js</span>
-                        <span>MongoDB</span>
+            </div>
+        </section>
+
+        <section>
+            <div class="shell">
+                <div class="projects-grid">
+                    <article class="panel project reveal">
+                        <div class="project-top">
+                            <span class="project-index">01</span>
+                            <span class="mini-label">Flagship Platform</span>
+                        </div>
+                        <h3>Classroom Information Management</h3>
+                        <p>
+                            A full-stack school platform designed, shipped, and maintained end to end. It supports student and staff workflows, content access, secure logins, communication, and operational visibility.
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag">Flask</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Redis</span>
+                            <span class="tag">Nginx</span>
+                        </div>
+                    </article>
+
+                    <article class="panel project reveal">
+                        <div class="project-top">
+                            <span class="project-index">02</span>
+                            <span class="mini-label">Data Integration</span>
+                        </div>
+                        <h3>PowerSchool SIS Pipeline</h3>
+                        <p>
+                            Automated ingestion, cleanup, normalization, and storage of student and school data so reporting and in-app views stay fast, reliable, and consistent across the platform.
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag">APIs</span>
+                            <span class="tag">ETL</span>
+                            <span class="tag">Normalization</span>
+                            <span class="tag">Concurrency</span>
+                        </div>
+                    </article>
+
+                    <article class="panel project reveal">
+                        <div class="project-top">
+                            <span class="project-index">03</span>
+                            <span class="mini-label">AI Layer</span>
+                        </div>
+                        <h3>Educational AI Systems</h3>
+                        <p>
+                            Fine-tuned models, retrieval pipelines, vector-backed search, and tailored interfaces that turn school-specific data into useful learning support instead of generic chatbot output.
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag">Fine-Tuning</span>
+                            <span class="tag">RAG</span>
+                            <span class="tag">Open WebUI</span>
+                            <span class="tag">Hugging Face</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="craft">
+            <div class="shell">
+                <div class="section-heading reveal">
+                    <div>
+                        <span class="eyebrow">Operating Model</span>
+                        <h2>How I build when the stack gets messy.</h2>
                     </div>
-                    <div class="project-links">
-                        <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                        <a href="#" target="_blank"><i class="fab fa-github"></i> Source Code</a>
+                    <p>
+                        Strong products come from disciplined execution across layers, not from polishing one slice and ignoring the rest.
+                    </p>
+                </div>
+
+                <div class="capability-grid">
+                    <article class="panel capability reveal">
+                        <span class="mini-label">Architecture</span>
+                        <h3>Own the whole path</h3>
+                        <p>From data modeling and API behavior to the final interaction details, I work toward systems that are coherent all the way through.</p>
+                    </article>
+                    <article class="panel capability reveal">
+                        <span class="mini-label">Performance</span>
+                        <h3>Optimize where it matters</h3>
+                        <p>Raw SQL, caching, proxy tuning, and careful delivery choices are tools, not afterthoughts, when the app needs to stay responsive.</p>
+                    </article>
+                    <article class="panel capability reveal">
+                        <span class="mini-label">AI</span>
+                        <h3>Useful over flashy</h3>
+                        <p>I prefer AI systems that are grounded in good retrieval, good data, and clear interfaces instead of novelty without operational value.</p>
+                    </article>
+                    <article class="panel capability reveal">
+                        <span class="mini-label">Product</span>
+                        <h3>Design for actual users</h3>
+                        <p>The interface has to reduce friction for students, staff, and administrators who are trying to get work done quickly.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="timeline">
+            <div class="shell">
+                <div class="section-heading reveal">
+                    <div>
+                        <span class="eyebrow">Timeline</span>
+                        <h2>Recent trajectory.</h2>
+                    </div>
+                    <p>
+                        The through-line is consistent: build systems with practical complexity, then make them easier to use than they have any right to be.
+                    </p>
+                </div>
+
+                <div class="timeline-list">
+                    <article class="timeline-item reveal">
+                        <div class="timeline-date">March 2024 - Present</div>
+                        <div>
+                            <strong>Full-Stack Developer, Classroom Information Management</strong>
+                            <span>Designed, developed, deployed, and maintained a multi-role school platform, including media delivery, messaging, reporting, security, and environment setup.</span>
+                        </div>
+                    </article>
+                    <article class="timeline-item reveal">
+                        <div class="timeline-date">Platform Layer</div>
+                        <div>
+                            <strong>Data, integrations, and monitoring</strong>
+                            <span>Connected PowerSchool data, supported legacy databases, wrote performance-sensitive queries, and built internal health checks for application stability.</span>
+                        </div>
+                    </article>
+                    <article class="timeline-item reveal">
+                        <div class="timeline-date">AI Expansion</div>
+                        <div>
+                            <strong>RAG and model customization for education</strong>
+                            <span>Integrated vector databases, retrieval pipelines, subject-specific tuning, and AI-facing interfaces that could fit into the broader product instead of sitting beside it.</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="shell">
+                <div class="contact-panel reveal">
+                    <span class="eyebrow">Contact</span>
+                    <h2>If the problem is real, I'm interested.</h2>
+                    <p>
+                        I like product work with constraints, systems that need to perform, and projects where backend depth and frontend quality both matter.
+                    </p>
+                    <div class="contact-grid">
+                        <div class="contact-list">
+                            <a href="mailto:tiwariajay928@gmail.com">
+                                <strong>Email</strong>
+                                <span>tiwariajay928@gmail.com</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/atiwar" target="_blank" rel="noreferrer">
+                                <strong>LinkedIn</strong>
+                                <span>linkedin.com/in/atiwar</span>
+                            </a>
+                            <a href="https://github.com/Night-Owl6" target="_blank" rel="noreferrer">
+                                <strong>GitHub</strong>
+                                <span>github.com/Night-Owl6</span>
+                            </a>
+                        </div>
+                        <div class="signature">
+                            &copy; 2026 Ajay Tiwari<br>
+                            Built with HTML, CSS, and a clearer point of view.
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Add more project cards as needed -->
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Experience Section -->
-    <section id="experience">
-        <h2 class="section-title">Experience</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-date">Mar 2024 - Present</div>
-                <div class="timeline-content">
-                    <h3>Full Stack Developer</h3>
-                    <h4>CIM (Classroom Information Management)</h4>
-                    <p class="tech-stack"><strong>Stack:</strong> MySQL, Redis, Python, Flask (Jinja Templating), Gunicorn/Waitress, HTML/CSS/JS, Nginx</p>
-                    <p class="tech-stack"><strong>Deployment:</strong> End-to-end production build on Windows Server with Nginx as a reverse proxy</p>
-                    
-                    <h5>Key Responsibilities & Achievements:</h5>
-                    <ul class="achievements-list">
-                        <li>Designed, developed, and maintained a complete web platform for schools with separate interfaces for students and staff/admins.</li>
-                        <li>Solely responsible for the entire development lifecycle: UI/UX design, feature implementation, production deployment, testing, debugging, and performance optimization.</li>
-                        <li>Implemented and incorporated educational content, including subject-specific instructional videos (Math, English, Science, etc.), served via Nginx for efficient media delivery.</li>
-                        <li>Built a real-time messaging system with attachments, read-status tracking, and notifications to support student-staff communication.</li>
-                        <li>Developed role-based access control and session management for secure logins across student and staff portals.</li>
-                        <li>Created and used raw SQL queries for performance-critical operations on a mix of legacy and modern relational databases.</li>
-                        <li>Maintained compatibility with non-editable legacy databases, extending functionality by designing new supplemental schemas.</li>
-                        <li>Developed internal monitoring tools to track web app health, uptime, and database connectivity.</li>
-                    </ul>
-                    
-                    <h5>PowerSchool SIS API Integration:</h5>
-                    <ul class="achievements-list">
-                        <li>Programmatically fetched, cleaned, and stored student and school data from PowerSchool.</li>
-                        <li>Mapped and normalized data structures for seamless display and reporting inside the CIM web app.</li>
-                        <li>Delivered a high-performance, concurrent web application that handled large user volumes with minimal latency.</li>
-                        <li>Used Nginx as a reverse proxy for Flask, optimized for static content delivery, caching, and load balancing.</li>
-                    </ul>
-                    
-                    <h5>AI Development and Implementation:</h5>
-                    <ul class="achievements-list">
-                        <li>Trained and fine-tuned multiple AI models from Ollama and Hugging Face, tailoring them to subject-specific needs.</li>
-                        <li>Implemented Retrieval-Augmented Generation (RAG) pipelines to enhance content delivery and user interaction with educational materials.</li>
-                        <li>Leveraged Open Web UI to create intuitive interfaces for AI model interaction, improving accessibility for students and staff.</li>
-                        <li>Fine-tuned large language models on proprietary school data to generate contextually relevant educational content and responses.</li>
-                        <li>Built and managed vector databases to support efficient storage and retrieval of educational content for AI-driven applications.</li>
-                        <li>Established robust data pipelines for preprocessing, cleaning, and integrating school-specific datasets into AI systems.</li>
-                        <li>Integrated AI solutions into the CIM web platform, enabling personalized learning experiences and automated content recommendations.</li>
-                    </ul>
-                </div>
-            </div>
-            <!-- Add more experience items as needed -->
-        </div>
-    </section>
+    <script>
+        const menuToggle = document.querySelector(".menu-toggle");
+        const nav = document.querySelector(".nav");
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-container">
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:tiwariajay928@gmail.com">tiwariajay928@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-linkedin"></i>
-                    <a href="www.linkedin.com/in/atiwar" target="_blank">LinkedIn</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-github"></i>
-                    <a href="https://github.com/Night-Owl6" target="_blank">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        if (menuToggle && nav) {
+            menuToggle.addEventListener("click", () => {
+                const open = nav.classList.toggle("is-open");
+                menuToggle.setAttribute("aria-expanded", String(open));
+            });
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Ajay Tiwari. All rights reserved.</p>
-    </footer>
+            nav.querySelectorAll("a").forEach((link) => {
+                link.addEventListener("click", () => {
+                    nav.classList.remove("is-open");
+                    menuToggle.setAttribute("aria-expanded", "false");
+                });
+            });
+        }
 
-    <script src="js/main.js"></script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.18 });
+
+        document.querySelectorAll(".reveal").forEach((element) => {
+            observer.observe(element);
+        });
+    </script>
 </body>
 </html>
+
